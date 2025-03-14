@@ -15,6 +15,14 @@ const urek=document.getElementById('urek');
 const secilmis=document.getElementById('secilmis');
 const qiymetler=document.getElementById('qiymetler');
 
+const umEndQiy=document.getElementById('umEndQiy');
+const UmEnd=document.getElementById('UmEnd');
+const umQiy=document.getElementById('umQiy');
+const mehSay=document.getElementById('mehSay');
+let mSay=0;
+let umumiQiy=0;
+
+
 const modeller=Array.from(new Set(data.map(item=>item.model)));
 const cities=Array.from(new Set(data.map(item=>item.city))).sort();
 const vals=Array.from(new Set(data.map(item=>item.currency)));
@@ -135,15 +143,22 @@ function sepeteAt(bu,i){
     bu.classList.toggle('urekBg');
     if(bu.classList.contains('urekBg')){
         likesArr.push(tapdi); 
+        // mSay+=1;
+        qiy();
         tapdi.count=1;
         urekler.push(bu);
+        
     }
     else {
         document.getElementById(`x${likesArr.findIndex(item=>item.id==i)}`).style.display='none';
         likesArr=likesArr.filter(item=>item.id!=i);
+        // mSay-=1;
+        qiy();
         urekler.splice(urekler.indexOf(bu),1);
+        
     }
     showLikes()
+    umQiyHesabla()
 }
 let urekler=[];
 
@@ -165,6 +180,9 @@ function showLikes(){
                                         <button class="p-2.5 bg-[#f1948a] rounded-[10px]">${item.count}</button>
                                         <button onclick="miqdarDeyis(1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">+</button>
                                     </div>
+                                    <div>
+                                        <p>Umumi qiymet: <span id="artUmQiy"></span></p>
+                                    </div>
                                 </div>
                          </article>
                         `
@@ -173,16 +191,33 @@ function showLikes(){
 function deleteAll(){
     likes.innerHTML='';
     likesArr=[];
+    // mSay=0;
+    qiy();
     urekler.forEach(item=>{
         item.classList.toggle('urekBg');
     })
     urekler=[];
+    umQiyHesabla()
 }
 function miqdarDeyis(miq,index){
-    if(likesArr[index].count >=0 || (likesArr[index].count==0&&miq>0) ) likesArr[index].count+=miq;
-    if(likesArr[index].count<0 && miq<0) likesArr.splice(index,1);
-    console.log(likesArr)
+    if(likesArr[index].count >=0 || (likesArr[index].count==0&&miq>0) )likesArr[index].count+=miq;
+    if(likesArr[index].count<0 && miq<0) {
+        likesArr.splice(index,1);
+        // mSay-=1;
+    }
     showLikes();
+    qiy();
+    umQiyHesabla()
 }
 
-qiymetler.style.width=`${sideBar.clientWidth}px`;
+// qiymetler.style.width=`${sideBar.clientWidth}px`;
+function qiy(){
+    mSay=likesArr.reduce((sum,item,ind,arr)=>sum+=1,0);
+    mehSay.innerHTML=mSay;
+}
+qiy();
+function umQiyHesabla(){
+    umumiQiy=likesArr.reduce((sum,item,ind,arr)=>sum+=item.price*item.count,0);
+    umQiy.innerHTML=umumiQiy;
+}
+umQiyHesabla();
