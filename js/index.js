@@ -122,7 +122,6 @@ closeTag.onclick=function close(){
 let likesArr=[];
 
 function sepeteAt(bu,i){
-    
 //index metoduynan:
     // if(likesArr.includes(data[i])) data[i].count+=1;
     // else {likesArr.push(data[i]); data[i].count=1}
@@ -141,11 +140,11 @@ function sepeteAt(bu,i){
     else {
         document.getElementById(`x${likesArr.findIndex(item=>item.id==i)}`).style.display='none';
         likesArr=likesArr.filter(item=>item.id!=i);
+        urekler.splice(urekler.indexOf(bu),1);
     }
-    
     showLikes()
 }
-const urekler=[];
+let urekler=[];
 
 function showLikes(){
     likes.innerHTML='';
@@ -173,14 +172,12 @@ function showLikes(){
 function deleteAll(){
     likes.innerHTML='';
     likesArr=[];
-    urekler.map(item=>{
-        item.style.fill="white";
+    urekler.forEach(item=>{
+        item.classList.toggle('urekBg');
     })
+    urekler=[];
 }
 function miqdarDeyis(miq,index){
-
     if(likesArr[index].count >0 || (likesArr[index].count==0&&miq>0) ) likesArr[index].count+=miq
-
     showLikes();
-    console.log(likesArr[index].count)
 }
