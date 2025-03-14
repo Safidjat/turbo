@@ -178,6 +178,8 @@ function deleteAll(){
     urekler=[];
 }
 function miqdarDeyis(miq,index){
-    if(likesArr[index].count >0 || (likesArr[index].count==0&&miq>0) ) likesArr[index].count+=miq
+    if(likesArr[index].count >=0 || (likesArr[index].count==0&&miq>0) ) likesArr[index].count+=miq;
+    if(likesArr[index].count<0 && miq<0) likesArr.splice(index,1);
+    console.log(likesArr)
     showLikes();
 }
