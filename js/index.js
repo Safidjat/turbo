@@ -13,6 +13,7 @@ const sepet=document.getElementById('sepet');
 const closeTag=document.getElementById('close');
 const urek=document.getElementById('urek');
 const secilmis=document.getElementById('secilmis');
+const qiymetler=document.getElementById('qiymetler');
 
 const modeller=Array.from(new Set(data.map(item=>item.model)));
 const cities=Array.from(new Set(data.map(item=>item.city))).sort();
@@ -109,15 +110,15 @@ function sil(){
     show()
 }
 
-
-
 secilmis.onclick=function sepetAc(){
     sideBar.style.right='0';
+    qiymetler.style.right='0';
     closeTag.style.display='inline';
 }
 closeTag.onclick=function close(){
     closeTag.style.display='none';
     sideBar.style.right='-1000px';
+    qiymetler.style.right='-1000px';
 }
 let likesArr=[];
 
@@ -183,3 +184,5 @@ function miqdarDeyis(miq,index){
     console.log(likesArr)
     showLikes();
 }
+
+qiymetler.style.width=`${sideBar.clientWidth}px`;
