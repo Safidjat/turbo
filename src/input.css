@@ -17,3 +17,9 @@
     --breakpoint-med2: 630px;
     --breakpoint-sm1: 350px;
 }
+@media only screen and (max-width: 1008px) {
+    .turbo:hover + .sideAsagi{opacity: 1;}
+}
+#sideBar::-webkit-scrollbar{
+    display: none;
+}

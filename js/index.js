@@ -32,6 +32,7 @@ const markalar=Array.from(new Set(data.map(item=>item.brand))).sort();
 
 const selects=document.querySelectorAll('select');
 
+
 let count=8;
 function show(){
     masinlar.innerHTML='';
