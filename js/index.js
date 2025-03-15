@@ -144,7 +144,6 @@ function sepeteAt(bu,i){
     bu.classList.toggle('urekBg');
     if(bu.classList.contains('urekBg')){
         likesArr.push(tapdi); 
-        // mSay+=1;
         qiy();
         tapdi.count=1;
         urekler.push(bu);
@@ -153,7 +152,6 @@ function sepeteAt(bu,i){
     else {
         document.getElementById(`x${likesArr.findIndex(item=>item.id==i)}`).style.display='none';
         likesArr=likesArr.filter(item=>item.id!=i);
-        // mSay-=1;
         qiy();
         urekler.splice(urekler.indexOf(bu),1);
         
@@ -192,7 +190,6 @@ function showLikes(){
 function deleteAll(){
     likes.innerHTML='';
     likesArr=[];
-    // mSay=0;
     qiy();
     urekler.forEach(item=>{
         item.classList.toggle('urekBg');
@@ -204,7 +201,8 @@ function miqdarDeyis(miq,index){
     if(likesArr[index].count >=0 || (likesArr[index].count==0&&miq>0) )likesArr[index].count+=miq;
     if(likesArr[index].count<0 && miq<0) {
         likesArr.splice(index,1);
-        // mSay-=1;
+        urekler.at(index).classList.toggle('urekBg');
+        urekler.splice(index,1);
     }
     showLikes();
     qiy();
