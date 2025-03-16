@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <style>
-            .urekBg{
-                fill: #ff0000;
-            }
-        </style>
+    <style>
+        .urekBg {
+            fill: #ff0000;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,9 +49,10 @@
         </nav>
         <div class="py-2.5 w-full bg-[#ca1016] flex justify-center ">
             <div class="w-[80%] flex flex-row items-center relative">
-                <a href="" 
+                <a href=""
                     class=" turbo max-sm:text-[15px] cursor-pointer font-bold text-2xl mr-8 max-big:mr-3 justify-self-start text-white ">TURBO.AZ</a>
-                <ul  class="sideAsagi flex flex-row gap-2.5 text-white max-big1:max-w-full   max-big1:flex-col max-big1:hover:opacity-100 duration-[1s] max-big1:opacity-0   max-big1:absolute  max-big1:top-[100%] max-big1:z-20 max-big1:bg-[#ca1016] max-big1:p-2.5 max-big1:rounded-[5px] max-big1:border-[#ead51a] max-big0:text-[15px] max-big0:gap-1.5 ">
+                <ul
+                    class="sideAsagi flex flex-row gap-2.5 text-white max-big1:max-w-full   max-big1:flex-col max-big1:hover:opacity-100 duration-[1s] max-big1:opacity-0   max-big1:absolute  max-big1:top-[100%] max-big1:z-20 max-big1:bg-[#ca1016] max-big1:p-2.5 max-big1:rounded-[5px] max-big1:border-[#ead51a] max-big0:text-[15px] max-big0:gap-1.5 ">
                     <li><a class="cursor-pointer">Butun elanlar</a></li>
                     <li><a class="cursor-pointer">Dilerler</a></li>
                     <li><a class="cursor-pointer">Avtokataloq</a></li>
@@ -60,8 +61,6 @@
                     <li><a class="cursor-pointer">Icare</a></li>
                 </ul>
                 <div class="ml-auto flex items-center">
-                    
-
                     <button
                         class="ml-2 max-sm:py-0.5 max-sm:px-0.5 hover:brightness-80 duration-300 cursor-pointer flex flex-row gap-1.5 items-center bg-[#85c01f] text-[#fff]  py-[10px] px-[7px] rounded-[7px]">
                         <img class="h-[15px] w-[15px]" src="./img/+.svg" alt="plus" />
@@ -74,14 +73,17 @@
             class="overflow-y-auto  ease-in duration-[1s] px-[20px] fixed  w-full right-[-1000px] small:max-w-[350px]  top-0 bottom-[100px] bg-[#ebedf3] z-10 ">
             <div class="flex justify-between items-center mt-[15px]">
                 <i id="close" class="fa-solid fa-xmark text-2xl cursor-pointer"></i>
-                <button onclick="deleteAll()" class="hover:brightness-80 duration-300 cursor-pointer bg-[#85c01f] text-[#fff]  py-[10px] px-[7px] rounded-[7px]">Sepeti temizle</button>
+                <button onclick="deleteAll()"
+                    class="hover:brightness-80 duration-300 cursor-pointer bg-[#85c01f] text-[#fff]  py-[10px] px-[7px] rounded-[7px]">Sepeti
+                    temizle</button>
             </div>
             <h1 class="text-center text-[red] py-[20px]">Beyenenler</h1>
             <div id="likes" class=" py-[10px] flex flex-col  gap-5 w-full">
-                
+
             </div>
         </div>
-        <div id="qiymetler" class="flex text-white ease-in duration-[1s] right-[-1000px] fixed p-2.5  min-h-[100px] bottom-0  bg-[#880016] w-full small:max-w-[350px] z-10">
+        <div id="qiymetler"
+            class="flex text-white ease-in duration-[1s] right-[-1000px] fixed p-2.5  min-h-[100px] bottom-0  bg-[#880016] w-full small:max-w-[350px] z-10">
             <div>
                 <p>Mehsul sayi:<span id="mehSay"></span></p>
                 <p>Umumi qiymet:<span id="umQiy"></span></p>
@@ -94,7 +96,7 @@
     </header>
 
     <div class="flex flex-row relative w-full justify-center">
-        
+
         <div id="content" class="md:w-[80%]">
             <main>
                 <div class="py-10 px-5 bg-[#ebedf3]">
@@ -176,7 +178,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <div class="bg-[#f1f3f7] border-t-1 border-b-1 border-[#eaebf2] px-5 py-5 font-bold text-[16px]">
                     <h1>PREMIUM ELANLAR</h1>
@@ -192,7 +194,7 @@
             </main>
             <footer></footer>
         </div>
-        
+
     </div>
     <script src="js/data.js"></script>
     <script src="js/index.js"></script>
