@@ -156,8 +156,9 @@ function sepeteAt(bu, i) {
         urekler.splice(urekler.indexOf(bu), 1);
 
     }
-    showLikes()
-    umQiyHesabla()
+    showLikes();
+    umQiyHesabla();
+    ozUmqiy(likesArr.findIndex(item => item.id == i));
 }
 let urekler = [];
 
@@ -202,6 +203,8 @@ function showLikes() {
                                 </div>
                          </article>
                         `
+    ozUmqiy(i);
+
     })
 }
 function deleteAll() {
@@ -221,9 +224,11 @@ function miqdarDeyis(miq, index) {
         urekler.at(index).classList.toggle('urekBg');
         urekler.splice(index, 1);
     }
-    showLikes();
+    
     qiy();
-    umQiyHesabla()
+    umQiyHesabla();
+    ozUmqiy(index);
+    showLikes();
 }
 
 // qiymetler.style.width=`${sideBar.clientWidth}px`;
@@ -255,4 +260,8 @@ function trashCan(index){
     urekler.splice(index, 1);
     qiy();
     umQiyHesabla();
+}
+function ozUmqiy(ind){
+    let qiymet=likesArr[ind].count*likesArr[ind].price;
+    document.getElementById(`umQiy${ind}`).innerHTML=qiymet+` ${likesArr[ind].currency}`;
 }
