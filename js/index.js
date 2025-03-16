@@ -197,7 +197,7 @@ function showLikes() {
                                         </div>
                                     </div>
                                     <div>
-                                        <p>Umumi qiymet: <span id="artUmQiy"></span></p>
+                                        <p>Umumi qiymet: <span id="umQiy${i}"></span></p>
                                     </div>
                                 </div>
                          </article>
@@ -232,9 +232,19 @@ function qiy() {
     mehSay.innerHTML = mSay;
 }
 qiy();
+function currencySwitch(cur){
+    let change;
+    if(cur=='USD') change= 1,7
+    else if (cur=='EUR') change=1,84
+    return change
+}
 function umQiyHesabla() {
-    umumiQiy = likesArr.reduce((sum, item, ind, arr) => sum += item.price * item.count, 0);
-    umQiy.innerHTML = umumiQiy;
+    umumiQiy = likesArr.reduce((sum, item, ind, arr) => {
+        if(item.currency=='AZN') sum += item.price * item.count
+        else sum += item.price * item.count*currencySwitch(item.currency)
+        return sum; 
+    }, 0);  
+    umQiy.innerHTML = umumiQiy+' AZN';
 }
 umQiyHesabla();
 
@@ -243,4 +253,6 @@ function trashCan(index){
     showLikes();
     urekler.at(index).classList.toggle('urekBg');
     urekler.splice(index, 1);
+    qiy();
+    umQiyHesabla();
 }
