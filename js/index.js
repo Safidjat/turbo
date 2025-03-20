@@ -146,7 +146,7 @@ function sepeteAt(bu, i) {
     if (bu.classList.contains('urekBg')) {
         likesArr.push(tapdi);
         qiy();
-        tapdi.count = 1;
+        tapdi.count = 0;
         urekler.push(bu);
 
     }
@@ -166,6 +166,7 @@ let urekler = [];
 function showLikes() {
     likes.innerHTML = '';
     likesArr.map((item, i) => {
+       
         likes.innerHTML += `
                             <article id="x${i}" class="w-full  max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc]  flex flex-row">
                                 <div class="w-[40%]">
@@ -200,13 +201,13 @@ function showLikes() {
                                     </div>
                                     <div id="div${i}">
                                         <p class="text-[15px]">Umumi qiymet: <span id="umQiy${i}"></span></p>
-                                        
+                                        <p class="p1 text-[15px] "></p>
+                                        <p class="p2 text-[15px] "></p>
                                     </div>
                                 </div>
                          </article>
                         `
         ozUmqiy(i);
-        // if(likesArr[i].count>=10) ozEndirimliUm(i)
         
     })
 }
@@ -219,54 +220,65 @@ function deleteAll() {
     })
     urekler = [];
     umQiyHesabla()
+    red()
 }
 function miqdarDeyis(miq, index) {
     if(!alertShown) {
         alert('10+ alana 10% endirim!');
         alertShown=true;
     }
-    if (likesArr[index].count >= 0 || (likesArr[index].count == 0 && miq > 0)) likesArr[index].count += miq;
+    if (likesArr[index].count >= 0) likesArr[index].count += miq;
     if (likesArr[index].count < 0 && miq < 0) {
         likesArr.splice(index, 1);
         urekler.at(index).classList.toggle('urekBg');
         urekler.splice(index, 1);
+        showLikes();
     }
-    let ilk=likesArr[index].count*likesArr[index].price;
-    let endirimli=ilk- 0.1*ilk; 
-    let end=0.1*ilk;
-    likesArr[index].endirimli=endirimli;
-    likesArr[index].end=end;
+    
 
-    if(likesArr[index].count>=10){
-        if(likesArr[index].currency=='AZN'){
-            end1=likesArr.reduce((sum,item)=>sum+item.end,0);
-            end2=likesArr.reduce((sum,item)=>sum+item.endirimli,0);
-            UmEnd.innerHTML=end1 +' AZN';
-            umEndQiy.innerHTML=end2 +' AZN';
-        }
-        else{
-            UmEnd.innerHTML=end1*currencySwitch(likesArr[index].currency) +' AZN';
-            umEndQiy.innerHTML=end2*currencySwitch(likesArr[index].currency) +' AZN';
-        }
-        document.getElementById(`div${index}`).innerHTML+=`<p class="text-[15px]">Endirimli umumi qiy.: ${endirimli} ${likesArr[index].currency}</p>`;
-        document.getElementById(`div${index}`).innerHTML+=`<p class="text-[15px]">Endirim meblegi.: ${end} ${likesArr[index].currency}</p>`;
-    }
-    if(likesArr[index].count<10){
-        UmEnd.innerHTML='0 AZN';
-        umEndQiy.innerHTML='0 AZN';
-    }
+    
     showLikes();
+    // if(likesArr[index].count>=10){
+        
+    //     mid(index)
+    //     red()   
+    // }
+    // else {
+    //     UmEnd.innerHTML=0
+    //     umEndQiy.innerHTML=0
+    // }
+    // red()   
+    
+    mid(index)
+    red() 
+    
     qiy();
     umQiyHesabla();
     ozUmqiy(index);
 }
 
-let end1=0;
-let end2=0;
-// function ozEndirimliUm(index){
+function red(){
+    umEndQiy.innerHTML=likesArr.reduce((sum,item)=>sum+((item?.endirimli || 0)*currencySwitch(item.currency)),0)+' AZN';
+    UmEnd.innerHTML=likesArr.reduce((sum,item)=>sum+((item?.end || 0)*currencySwitch(item.currency)),0)+' AZN';
+}
+function mid(index){
+    if(likesArr[index].count<10){
+        likesArr[index].endirimli=0;
+        likesArr[index].end=0;
+    }
+    else{
+        let ilk=likesArr[index].count*likesArr[index].price;
+        let endirimli=ilk- 0.1*ilk; 
+        let end=0.1*ilk;
+        likesArr[index].endirimli=endirimli;
+        likesArr[index].end=end;
+        
+        document.querySelector(`#div${index} .p1`).innerHTML=`Endirimli umumi qiy.: ${endirimli}`;
+        document.querySelector(`#div${index} .p2`).innerHTML=`Endirim meblegi.: ${end}`;
+    }
     
-    
-// }
+}
+
 
 // qiymetler.style.width=`${sideBar.clientWidth}px`;
 function qiy() {
@@ -278,6 +290,7 @@ function currencySwitch(cur){
     let change;
     if(cur=='USD') change= 1,7
     else if (cur=='EUR') change=1,84
+    else if (cur=='AZN') change=1
     return change
 }
 function umQiyHesabla() {
@@ -297,6 +310,7 @@ function trashCan(index){
     urekler.splice(index, 1);
     qiy();
     umQiyHesabla();
+    red()
 }
 function ozUmqiy(ind){
     let qiymet=likesArr[ind].count*likesArr[ind].price;
