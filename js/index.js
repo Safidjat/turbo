@@ -153,9 +153,9 @@ function sepeteAt(bu, i) {
     else {
         document.getElementById(`x${likesArr.findIndex(item => item.id == i)}`).style.display = 'none';
         likesArr = likesArr.filter(item => item.id != i);
+        red();
         qiy();
         urekler.splice(urekler.indexOf(bu), 1);
-
     }
     showLikes();
     umQiyHesabla();
@@ -238,16 +238,7 @@ function miqdarDeyis(miq, index) {
 
     
     showLikes();
-    // if(likesArr[index].count>=10){
-        
-    //     mid(index)
-    //     red()   
-    // }
-    // else {
-    //     UmEnd.innerHTML=0
-    //     umEndQiy.innerHTML=0
-    // }
-    // red()   
+      
     
     mid(index)
     red() 
