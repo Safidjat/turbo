@@ -234,15 +234,9 @@ function miqdarDeyis(miq, index) {
         urekler.splice(index, 1);
         showLikes();
     }
-    
-
-    
     showLikes();
-      
-    
     mid(index)
     red() 
-    
     qiy();
     umQiyHesabla();
     ozUmqiy(index);
