@@ -480,9 +480,6 @@
   .mt-\[15px\] {
     margin-top: 15px;
   }
-  .mt-\[20px\] {
-    margin-top: 20px;
-  }
   .mr-8 {
     margin-right: calc(var(--spacing) * 8);
   }
@@ -653,9 +650,6 @@
   }
   .max-w-6xl {
     max-width: var(--container-6xl);
-  }
-  .max-w-\[600px\] {
-    max-width: 600px;
   }
   .max-w-none {
     max-width: none;
@@ -2471,11 +2465,6 @@
       padding-block: 10px;
     }
   }
-  .max-small3\:w-full {
-    @media (width < 565px) {
-      width: 100%;
-    }
-  }
   .max-small3\:flex-col {
     @media (width < 565px) {
       flex-direction: column;
@@ -2516,11 +2505,6 @@
       font-size: 15px;
     }
   }
-  .max-lg\:rounded {
-    @media (width < 64rem) {
-      border-radius: 0.25rem;
-    }
-  }
   .sm\:h-96 {
     @media (width >= 300px) {
       height: calc(var(--spacing) * 96);
@@ -2538,18 +2522,6 @@
         margin-block-start: calc(calc(var(--spacing) * 12) * var(--tw-space-y-reverse));
         margin-block-end: calc(calc(var(--spacing) * 12) * calc(1 - var(--tw-space-y-reverse)));
       }
-    }
-  }
-  .sm\:rounded-t {
-    @media (width >= 300px) {
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
-    }
-  }
-  .sm\:rounded-b {
-    @media (width >= 300px) {
-      border-bottom-right-radius: 0.25rem;
-      border-bottom-left-radius: 0.25rem;
     }
   }
   .sm\:text-4xl {
@@ -2618,24 +2590,9 @@
       background-color: var(--color-gray-500);
     }
   }
-  .dark\:bg-violet-600 {
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-violet-600);
-    }
-  }
-  .dark\:text-gray-50 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-gray-50);
-    }
-  }
   .dark\:text-gray-600 {
     @media (prefers-color-scheme: dark) {
       color: var(--color-gray-600);
-    }
-  }
-  .dark\:text-gray-800 {
-    @media (prefers-color-scheme: dark) {
-      color: var(--color-gray-800);
     }
   }
 }
@@ -2883,6 +2840,60 @@
 @property --tw-backdrop-brightness {
   syntax: "*";
   inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contain-size {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contain-layout {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contain-paint {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contain-style {
+  syntax: "*";
+  inherits: false;
+}
+s: false;
 }
 @property --tw-backdrop-contrast {
   syntax: "*";
