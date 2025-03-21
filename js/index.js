@@ -40,7 +40,7 @@ function show() {
         .slice(0, count)
         .map((item, i) => {
             masinlar.innerHTML += `
-                        <a href="../pages/detail.htm" class="w-full small:w-[45%] big1:w-[31%] big3:w-[23%] max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc] relative">
+                        <a href="../pages/detail.htm?id=${item.id}" class="w-full small:w-[45%] big1:w-[31%] big3:w-[23%] max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc] relative">
                             <div  class="absolute top-[15px] right-[15px] cursor-pointer">
                                 <svg onclick="sepeteAt(this,${item.id})"  width="20" height="20" class="fill-[white]" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"><!--! Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. -->
