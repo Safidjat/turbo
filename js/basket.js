@@ -13,6 +13,9 @@ const umQiy = document.getElementById('umQiy');
 const mehSay = document.getElementById('mehSay');
 let mSay = 0;
 let umumiQiy = 0;
+let likesArr =JSON.parse(localStorage.getItem('basket')) || [];
+
+
 let alertShown;
 secilmis.onclick = function sepetAc() {
     sideBar.style.right = '0';
@@ -25,7 +28,7 @@ closeTag.onclick = function close() {
     sideBar.style.right = '-1000px';
     qiymetler.style.right = '-1000px';
 }
-let likesArr = [];
+
 function sepeteAt(e,bu, i) {
     //index metoduynan:
     // if(likesArr.includes(data[i])) data[i].count+=1;
@@ -51,12 +54,16 @@ function sepeteAt(e,bu, i) {
         qiy();
         urekler.splice(urekler.indexOf(bu), 1);
     }
+
+    const str=JSON.stringify(likesArr)
+    localStorage.setItem('basket',str);
+
     showLikes();
     umQiyHesabla();
     ozUmqiy(likesArr.findIndex(item => item.id == i));
 }
 let urekler = [];
-
+showLikes()
 function showLikes() {
     likes.innerHTML = '';
     likesArr.map((item, i) => {
@@ -108,6 +115,10 @@ function showLikes() {
 function deleteAll() {
     likes.innerHTML = '';
     likesArr = [];
+
+    const str=JSON.stringify(likesArr)
+    localStorage.setItem('basket',str);
+
     qiy();
     urekler.forEach(item => {
         item.classList.toggle('urekBg');
@@ -128,6 +139,9 @@ function miqdarDeyis(miq, index) {
         urekler.splice(index, 1);
         showLikes();
     }
+    const str=JSON.stringify(likesArr)
+    localStorage.setItem('basket',str);
+
     showLikes();
     mid(index)
     red() 
@@ -139,6 +153,7 @@ function miqdarDeyis(miq, index) {
 function red(){
     umEndQiy.innerHTML=likesArr.reduce((sum,item)=>sum+((item?.endirimli || 0)*currencySwitch(item.currency)),0)+' AZN';
     UmEnd.innerHTML=likesArr.reduce((sum,item)=>sum+((item?.end || 0)*currencySwitch(item.currency)),0)+' AZN';
+
 }
 function mid(index){
     if(likesArr[index].count<10){
@@ -155,7 +170,8 @@ function mid(index){
         document.querySelector(`#div${index} .p1`).innerHTML=`Endirimli umumi qiy.: ${endirimli}`;
         document.querySelector(`#div${index} .p2`).innerHTML=`Endirim meblegi.: ${end}`;
     }
-    
+    const str=JSON.stringify(likesArr)
+    localStorage.setItem('basket',str);
 }
 
 
@@ -184,6 +200,10 @@ umQiyHesabla();
 
 function trashCan(index){
     likesArr.splice(index, 1);
+
+    const str=JSON.stringify(likesArr)
+    localStorage.setItem('basket',str);
+
     showLikes();
     urekler.at(index).classList.toggle('urekBg');
     urekler.splice(index, 1);
