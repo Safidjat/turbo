@@ -25,6 +25,7 @@ function show(){
                         ${item.odometer}
                         ${item.credit? 'Kredite verilir!' : 'Nagd verilir!'}
                     </p>
+                    <button onclick="sepeteAt(event.preventDefault(),this,${id})" class="fa-solid fa-heart cursor-pointer"></button>
                     <h4 class="text-xl font-semibold">${item.price} ${item.currency}</h4>
                 </div>
             </a>
