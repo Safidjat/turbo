@@ -607,6 +607,9 @@
   .w-\[40\%\] {
     width: 40%;
   }
+  .w-\[40\] {
+    width: 40;
+  }
   .w-\[50\%\] {
     width: 50%;
   }
@@ -2400,6 +2403,11 @@
       padding-block: 10px;
     }
   }
+  .max-small3\:w-full {
+    @media (width < 565px) {
+      width: 100%;
+    }
+  }
   .max-small3\:flex-col {
     @media (width < 565px) {
       flex-direction: column;
@@ -2448,6 +2456,11 @@
   .small\:max-w-\[350px\] {
     @media (width >= 420px) {
       max-width: 350px;
+    }
+  }
+  .small3\:w-full {
+    @media (width >= 565px) {
+      width: 100%;
     }
   }
   .big1\:w-\[31\%\] {

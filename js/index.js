@@ -40,7 +40,7 @@ function show() {
         .slice(0, count)
         .map((item, i) => {
             masinlar.innerHTML += `
-                        <article onclick="seyfedeAc(${item.id})" class="w-full small:w-[45%] big1:w-[31%] big3:w-[23%] max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc] relative">
+                        <article class="w-full small:w-[45%] big1:w-[31%] big3:w-[23%] max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc] relative">
                             <div  class="absolute top-[15px] right-[15px] cursor-pointer">
                                 <svg onclick="sepeteAt(this,${item.id})"  width="20" height="20" class="fill-[white]" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"><!--! Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. -->
@@ -302,20 +302,22 @@ function ozUmqiy(ind){
     document.getElementById(`umQiy${ind}`).innerHTML=qiymet+` ${likesArr[ind].currency}`;
 }
 
-function seyfedeAc(id){
-    const elem=data.find(item=>item.id==id);
-    document.querySelector('main').innerHTML='';
-    document.querySelector('main').innerHTML=`
-            <div class="mt-[20px] w-full flex-row flex justify-center max-w-[600px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
-                <img src="${elem.images[0]}" alt="" class="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500">
-                <div class="flex flex-col justify-between p-6 space-y-8">
-                    <div class="space-y-2">
-                        <h2 class="text-3xl font-semibold tracking-wide">${elem.brand},${elem.model}</h2>
-                        <p class="dark:text-gray-800">${elem.year},${elem.dates}</p>
-                        <h3>${elem.price} ${elem.currency}</h3>
-                    </div>
-                    <button type="button" class="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50" fdprocessedid="edrlsj">Read more</button>
-                </div>
-            </div>
-    `;
-}
+// function seyfedeAc(id){
+//     const elem=data.find(item=>item.id==id);
+//     document.querySelector('main').innerHTML='';
+//     document.querySelector('main').innerHTML=`
+//             <div class="mt-[20px] w-full flex-row flex max-small3:w-full  max-small3:flex-col  max-w-[600px] rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+//                 <img src="${elem.images[0]}" alt="" class=" max-small3:w-full w-[60%] object-cover object-center  rounded-t-md h-72 dark:bg-gray-500">
+//                 <div class="flex max-small3:w-full  w-[40%] flex-col justify-between p-6 space-y-8">
+//                     <div class="space-y-2">
+//                         <h2 class="text-3xl font-semibold tracking-wide">${elem.brand},${elem.model}</h2>
+//                         <p class="dark:text-gray-800">${elem.year},${elem.dates}</p>
+//                         <h3>${elem.price} ${elem.currency}</h3>
+//                     </div>
+//                     <button type="button" class="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50" fdprocessedid="edrlsj">Read more</button>
+//                 </div>
+//             </div>
+//     `;
+//     document.querySelector('main').classList.add('justify-center')
+//     document.querySelector('main').classList.add('flex')
+// }
