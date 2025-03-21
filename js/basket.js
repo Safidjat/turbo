@@ -72,7 +72,7 @@ function showLikes() {
     likesArr.map((item, i) => {
        
         likes.innerHTML += `
-                            <article  id="x${i}" class="w-full  max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc]  flex flex-row">
+                            <a href="../pages/detail.htm?id=${item.id}&name=${item.brand}"  id="x${i}" class="w-full  max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc]  flex flex-row">
                                 <div class="w-[40%]">
                                     <img class=" h-full " src="${item.images[0]}" alt="masin" />
                                 </div>
@@ -83,12 +83,12 @@ function showLikes() {
                                     <p class="text-[#8d94ad]">Baki, ${item.dates}</p>
                                     <div class="flex justify-between items-center">
                                         <div>
-                                            <button onclick="miqdarDeyis(-1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">-</button>
+                                            <button onclick="miqdarDeyis(event.preventDefault(),-1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">-</button>
                                             <button class="p-2.5 bg-[#f1948a] rounded-[10px]">${item.count}</button>
-                                            <button onclick="miqdarDeyis(1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">+</button>
+                                            <button onclick="miqdarDeyis(event.preventDefault(),1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">+</button>
                                         </div>
                                         <div>
-                                            <svg onclick="trashCan(${i})" class="cursor-pointer" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <svg onclick="trashCan(event.preventDefault(),${i})" class="cursor-pointer" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <defs>
                                                     <style>
                                                         .fa-secondary {
@@ -109,7 +109,7 @@ function showLikes() {
                                         <p class="p2 text-[15px] "></p>
                                     </div>
                                 </div>
-                         </article>
+                         </a>
                         `
         ozUmqiy(i);
         
