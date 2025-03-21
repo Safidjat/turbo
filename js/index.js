@@ -42,7 +42,7 @@ function show() {
             masinlar.innerHTML += `
                         <a href="../pages/detail.htm?id=${item.id}&name=${item.brand}" class="w-full small:w-[45%] big1:w-[31%] big3:w-[23%] max-h-[325px] bg-white rounded-[10px] overflow-hidden shadow-[0_0_15px_#ccc] relative">
                             <div  class="absolute top-[15px] right-[15px] cursor-pointer">
-                                <svg onclick="sepeteAt(this,${item.id})"  width="20" height="20" class="fill-[white]" xmlns="http://www.w3.org/2000/svg"
+                                <svg onclick="sepeteAt(event.preventDefault(),this,${item.id})"  width="20" height="20" class="fill-[white]" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"><!--! Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc. -->
                                     <path
                                         d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM131.9 280.9c-29.4-29.8-29.4-78.2 0-108s77-29.8 106.4 0l17.7 18 17.7-18c29.4-29.8 77-29.8 106.4 0s29.4 78.2 0 108L278.5 384.1c-6.2 6.3-14.3 9.4-22.5 9.4s-16.3-3.1-22.5-9.4L131.9 280.9z" />
@@ -132,7 +132,7 @@ closeTag.onclick = function close() {
 }
 let likesArr = [];
 
-function sepeteAt(bu, i) {
+function sepeteAt(e,bu, i) {
     //index metoduynan:
     // if(likesArr.includes(data[i])) data[i].count+=1;
     // else {likesArr.push(data[i]); data[i].count=1}
