@@ -14,6 +14,7 @@ const mehSay = document.getElementById('mehSay');
 let mSay = 0;
 let umumiQiy = 0;
 let likesArr =JSON.parse(localStorage.getItem('basket')) || [];
+let urekler =JSON.parse(localStorage.getItem('heartsRed')) ||  [];
 
 
 let alertShown;
@@ -58,11 +59,13 @@ function sepeteAt(e,bu, i) {
     const str=JSON.stringify(likesArr)
     localStorage.setItem('basket',str);
 
+    const strUr=JSON.stringify(urekler)
+    localStorage.setItem('heartsRed',strUr);
+
     showLikes();
     umQiyHesabla();
     ozUmqiy(likesArr.findIndex(item => item.id == i));
 }
-let urekler = [];
 showLikes()
 function showLikes() {
     likes.innerHTML = '';
@@ -124,6 +127,10 @@ function deleteAll() {
         item.classList.toggle('urekBg');
     })
     urekler = [];
+
+    const strUr=JSON.stringify(urekler)
+    localStorage.setItem('heartsRed',strUr);
+
     umQiyHesabla()
     red()
 }
@@ -139,6 +146,10 @@ function miqdarDeyis(miq, index) {
         urekler.splice(index, 1);
         showLikes();
     }
+
+    const strUr=JSON.stringify(urekler)
+    localStorage.setItem('heartsRed',strUr);
+
     const str=JSON.stringify(likesArr)
     localStorage.setItem('basket',str);
 
@@ -207,6 +218,10 @@ function trashCan(index){
     showLikes();
     urekler.at(index).classList.toggle('urekBg');
     urekler.splice(index, 1);
+
+    const strUr=JSON.stringify(urekler)
+    localStorage.setItem('heartsRed',strUr);
+
     qiy();
     umQiyHesabla();
     red()
