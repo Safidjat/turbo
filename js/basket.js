@@ -65,6 +65,7 @@ function sepeteAt(e,bu, i) {
     showLikes();
     umQiyHesabla();
     ozUmqiy(likesArr.findIndex(item => item.id == i));
+    console.log(tapdi.count)
 }
 showLikes()
 function showLikes() {

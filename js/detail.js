@@ -38,15 +38,15 @@ show();
 //Cookies:Могут быть доступны как клиенту через JavaScript, так и серверу.
 //localStorage:Доступен только через JavaScript на клиентской стороне.
 
-console.log(localStorage)
-localStorage.setItem('ad','Sofi')
-console.log(localStorage.getItem('ad'))
-localStorage.removeItem('ad')
-localStorage.setItem('ad','Sofi')
-localStorage.setItem('yas','20')
+// console.log(localStorage)
+// localStorage.setItem('ad','Sofi')
+// console.log(localStorage.getItem('ad'))
+// localStorage.removeItem('ad')
+// localStorage.setItem('ad','Sofi')
+// localStorage.setItem('yas','20')
 // localStorage.clear()
 
-const elem=JSON.stringify([{},{}])
-console.log(elem)
-console.log(typeof(elem))
-console.log(JSON.parse(elem))
+// const elem=JSON.stringify([{},{}])
+// console.log(elem)
+// console.log(typeof(elem))
+// console.log(JSON.parse(elem))
