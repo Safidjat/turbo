@@ -828,7 +828,7 @@ let data=[
   ].map((item,i)=>{
     return {
       ...item,
-      id:i+1
+      id:i+1,
     }
   })
 
