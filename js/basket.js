@@ -84,12 +84,12 @@ function showLikes() {
                                     <p class="text-[#8d94ad]">Baki, ${item.dates}</p>
                                     <div class="flex justify-between items-center">
                                         <div>
-                                            <button onclick="miqdarDeyis(event.preventDefault(),-1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">-</button>
+                                            <button onclick="miqdarDeyis(event,-1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">-</button>
                                             <button class="p-2.5 bg-[#f1948a] rounded-[10px]">${item.count}</button>
-                                            <button onclick="miqdarDeyis(event.preventDefault(),1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">+</button>
+                                            <button onclick="miqdarDeyis(event,1,${i})" class="p-2.5 bg-[#bdc3c7] rounded-[10px] cursor-pointer">+</button>
                                         </div>
                                         <div>
-                                            <svg onclick="trashCan(event.preventDefault(),${i})" class="cursor-pointer" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <svg onclick="trashCan(event,${i})" class="cursor-pointer" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                                 <defs>
                                                     <style>
                                                         .fa-secondary {
@@ -135,7 +135,8 @@ function deleteAll() {
     umQiyHesabla()
     red()
 }
-function miqdarDeyis(miq, index) {
+function miqdarDeyis(e,miq, index) {
+    e.preventDefault()
     if(!alertShown) {
         alert('10+ alana 10% endirim!');
         alertShown=true;
@@ -210,7 +211,8 @@ function umQiyHesabla() {
 }
 umQiyHesabla();
 
-function trashCan(index){
+function trashCan(e,index){
+    e.preventDefault()
     likesArr.splice(index, 1);
 
     const str=JSON.stringify(likesArr)
